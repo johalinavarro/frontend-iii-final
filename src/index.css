@@ -7,11 +7,22 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.container {
+  min-height: calc(100vh - 60px - 60px);
+  overflow-y: auto;
+  max-width: 1024px;
+  margin: 0 auto;
+}
+.theme-dark {
+  background-color: #333;
+  color: #fff;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-.favButton{
+.cardActionButton{
   background-color: rgba(136, 136, 136, 0.116);
   padding: 10px;
   border: none;
@@ -21,13 +32,6 @@ code {
 
 h1{
   text-align: center;
-}
-
-nav{
-  display: flex;
-  width: 80vw;
-  justify-content: flex-start;
-  padding: 1rem;
 }
 
 a{
@@ -44,12 +48,10 @@ footer {
   display: flex;
   justify-content: center;
   text-align: center;
-  padding: 2rem;
   position: relative;
   bottom: 0;
-  width: 90%;
-  height: 40px;
-  margin-top: 2rem;
+  background-color: red;
+  height: 60px;
 }
 
 footer > img{
@@ -88,35 +90,7 @@ form{
   display: flex;
   justify-content: space-evenly;
   gap: 1rem;
-  width: 90vw;
   height: auto;
   flex-wrap: wrap;
   margin: 0 auto;
-}
-
-table {
- border-collapse: collapse;
-    border-spacing: 0;
-    width: 100%;
-    display: table;
-    border: 1px solid #ccc;
-
-}
-
-td, th {
-  border: 1px solid #dddddd;
-  text-align: left;
-  padding: 8px;
-}
-
-tr:nth-child(even) {
-  background-color: #dddddd;
-}
-
-.dark{
-  background-color: #12121296;
-  color: white;
-}
-.dark > a {
-  color: white;
 }

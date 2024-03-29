@@ -1,0 +1,16 @@
+.detail {
+    display: flex;
+    margin-top: 16px;
+}
+    .detail img {
+        width: 30%;
+        height: 250px;
+        border: 1px solid #cccccc;
+    }
+    .detail .data {
+        width: 80%;
+        margin:0px 10px;
+    }
+        .detail .data h1 {
+            text-align: 'center';
+        }

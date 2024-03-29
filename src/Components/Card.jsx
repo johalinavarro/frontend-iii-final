@@ -1,20 +1,37 @@
-import React from "react";
+import { Link } from "react-router-dom"
+import { useGlobalStates } from "./utils/global.context";
+import './Card.css'
 
 
 const Card = ({ name, username, id }) => {
 
-  const addFav = ()=>{
+  const { state, dispatch } = useGlobalStates()
+
+  const addFav = () => {
+    dispatch({ type: 'ADD_FAVORITES', payload: { name, username, id } })
+    alert(`Dentist ${name} has been added to favorites successfuly`)
     // Aqui iria la logica para agregar la Card en el localStorage
   }
 
+  const removeFav = () => {
+    dispatch({ type: 'REMOVE_FAVORITES', payload: id })
+    alert(`Dentist ${name} has been removed from favorites successfuly`)
+    // Aqui iria la logica para agregar la Card en el localStorage
+  }
+
+  const dentist = state.data.find(d => d.id === id)
+
   return (
     <div className="card">
-        {/* En cada card deberan mostrar en name - username y el id */}
+      <Link to={`dentist/${id}`} relative="path">
+        <img src="/images/doctor.jpg" alt="" />
+      </Link>
+      <h4>{ name }</h4>
+      <p>{ username }</p>
 
-        {/* No debes olvidar que la Card a su vez servira como Link hacia la pagina de detalle */}
-
-        {/* Ademas deberan integrar la logica para guardar cada Card en el localStorage */}
-        <button onClick={addFav} className="favButton">Add fav</button>
+      { !dentist
+        ? <button onClick={addFav} className="cardActionButton">⭐</button>
+        : <button onClick={removeFav} className="cardActionButton">❌</button>}
     </div>
   );
 };

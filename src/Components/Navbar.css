@@ -1,0 +1,43 @@
+header {
+    background-color: #eee;
+}
+.theme-dark header {
+    background-color: #000000;
+    color: #fff;
+}
+.headerWrapper {
+    display: flex;
+    width: 70%;
+    margin: 0 auto;
+    height: 60px;
+    justify-content: space-between;
+}
+    .headerWrapper img {
+        width: 200px;
+    }
+    .headerWrapper nav {
+        display: flex;
+        width: 80vw;
+        justify-content: flex-end;
+        padding: 16px 0;
+    }
+        .headerWrapper nav ul{
+            margin: 0;
+            padding: 0;
+            line-height: 26px;
+        }
+        .headerWrapper nav .themeButton{
+            background-color: #000000;
+            color: #ffffff;
+            border: 1px solid #eeeeee;
+            cursor: pointer;
+        }
+        .headerWrapper nav .themeButton.dark{
+            background-color: #ffffff;
+            color: #000000;
+        }
+
+.theme-dark header .headerWrapper nav ul a {
+    background-color: #000;
+    color: #fff;
+}

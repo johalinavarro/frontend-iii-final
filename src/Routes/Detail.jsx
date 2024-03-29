@@ -1,18 +1,37 @@
-import React from 'react'
+import { useEffect, useState } from 'react'
+import { useParams } from "react-router-dom";
+import { getDentistById } from '../api/dentists'
 
-
-//Este componente debera ser estilado como "dark" o "light" dependiendo del theme del Context
+import './Detail.css'
 
 const Detail = () => {
- 
-  // Consumiendo el parametro dinamico de la URL deberan hacer un fetch a un user en especifico
+  const { id } = useParams();
+
+  const [dentist, setDentist] = useState([]);
+
+  useEffect(() => {
+    const getDentist = async () => {
+      const result = await getDentistById(id)
+      setDentist(result)
+    }
+
+    getDentist()
+  }, [])
 
   return (
-    <>
-      <h1>Detail Dentist id </h1>
-      {/* aqui deberan renderizar la informacion en detalle de un user en especifico */}
-      {/* Deberan mostrar el name - email - phone - website por cada user en especifico */}
-    </>
+    <main className='container detail' >
+      <img src="/images/doctor.jpg" />
+      <div className='data'>
+        <h1>{ dentist.name }</h1>
+
+        <p>Username: { dentist.username }</p>
+        <p>Phone: { dentist.phone }</p>
+        <p>Email: { dentist.email }</p>
+        <p>Address: { dentist.address?.street } - { dentist.address?.suite }, { dentist.address?.city }</p>
+        <p>Company: { dentist.company?.name }</p>
+        <p>Website: <a href={`http://${ dentist.website }`}>{ dentist.website }</a></p>
+      </div>
+    </main>
   )
 }
 
